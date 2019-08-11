@@ -202,7 +202,7 @@
                     message: `<div class="text-center">${data.message}</div>`,
                 });
 
-                if (data.success) bootbox.dialog({
+                else if (data.success) bootbox.dialog({
                     size: "small",
                     className: "middle",
                     closeButton: false,
@@ -217,7 +217,23 @@
                                 bootbox.hideAll(); 
                             }
                         },
-                    }
+                    },
+                });
+
+                else if (data.error) bootbox.dialog({
+                    size: "small",
+                    className: "middle",
+                    closeButton: true,
+                    title: `<div class="alert-icon icon-warning">` 
+                    + `</div><h2 style="margin:auto;">Error!</h2>`,
+                    message: `<div>Sorry! An error occurred.</div>`
+                    + `<div>${data.error}</div>`,
+                    buttons: {
+                        cancel: {
+                            label: "Close",
+                            className: "btn-default",
+                        },
+                    },
                 });
 
             }
