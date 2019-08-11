@@ -118,7 +118,6 @@
 
         //  if ( !$("#username").val() )
         //      $("#username").val(authToken.email);
-
         //  $("#email").val(authToken.email);
         //  if ( authToken.email ) {
         //      $("#username").val(authToken.email);
@@ -165,10 +164,6 @@
 </script>
 
 <script>
-
-    $(function(){
-        debugMode && console.log("username:", $("#username").val() );
-    });
 
     $("#login-btn").on("click", function(){
 
@@ -244,6 +239,10 @@
             }
         });
 
+    });
+
+    $(document).ready(function(){
+        debugMode && console.log("username:", $("#username").val() );
     });
 
 </script>
