@@ -74,13 +74,6 @@
 
         <img id="login-logo" src="//i.imgur.com/kCxGqHm.png">
 
-    <!--
-        <div class="form-group">
-            <div class="login-label">Username or Email</div>
-            <input type="email" class="form-control" id="email" name="email" required title="Type your email">
-        </div>
-    -->
-
         <div class="form-group">
             <div class="login-label">Username or Email</div>
             <input type="text" class="form-control" id="username" name="username" required title="Type your username">
@@ -91,8 +84,8 @@
         </div>
 
         <div class="form-group">
-            <a class="btn btn-default pull-right" id="login-btn" name="submit">Login</a>
-            <a class="btn btn-default pull-right" id="cancel-btn" name="cancel">Cancel</a>
+            <div class="btn btn-default pull-right" id="login-btn" name="submit">Login</div>
+            <div class="btn btn-default pull-right" id="cancel-btn" name="cancel">Cancel</div>
         </div>
 
         <div class="btm-links">
@@ -114,6 +107,7 @@
     socket.on("connect", function (status) {
         debugMode && console.log("status:", status);
         if (status.isAuthenticated) {
+
         //  var authToken = socket.getAuthToken();
         //  if ( !$("#username").val() )
         //      $("#username").val(authToken.email);
@@ -124,7 +118,16 @@
         //      $("#username").val(authToken.username);
         //  }
         //  $("#password").val(authToken.password);
-        //  debugMode && console.log( "authToken:", authToken );
+
+            var msg = "You have been already authenticated!";
+            bootbox.dialog({
+                buttons: false,
+                closeButton: true,
+                className: "middle",
+                message: `<div class="text-center">${msg}</div>`,
+            });
+
+            debugMode && console.log( "authToken:", authToken );
         }
     });
 
@@ -166,7 +169,6 @@
     $("#login-btn").on("click", function(){
 
         var credentials = {};
-    //  credentials.email    = $("#email").val();
         credentials.username = $("#username").val();
         credentials.password = $("#password").val();
 
@@ -196,21 +198,10 @@
                 debugMode && console.log("login success:", data);
 
                 if (data.success) bootbox.dialog({
-                    size: "small",
+                    buttons: false,
+                    closeButton: true,
                     className: "middle",
-                    closeButton: false,
-                    title: `<div class="alert-icon icon-success">`
-                    + `</div><h2 style="margin:auto;">Success</h2>`,
-                    message: `<div>${data.success}</div>`,
-                    buttons: { 
-                        success: {
-                            label: "Close",
-                            className: "btn-success",
-                            callback: function(){ 
-                                bootbox.hideAll(); 
-                            }
-                        },
-                    }
+                    message: `<div class="text-center">${data.success}</div>`,
                 });
 
             }
