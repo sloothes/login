@@ -116,6 +116,10 @@
         if (status.isAuthenticated) {
             var authToken = socket.getAuthToken();
 
+            debugMode && console.log({
+                "username": $("#username").val(),
+            });
+
             if ( !$("#username").val() )
                 $("#username").val(authToken.email);
 
