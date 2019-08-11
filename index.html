@@ -127,6 +127,8 @@
         //  $("#password").val(authToken.password);
 
             debugMode && console.log( "authToken:", authToken );
+            debugMode && console.log("username:", $("#username").val() );
+
         }
     });
 
@@ -239,10 +241,6 @@
             }
         });
 
-    });
-
-    $(document).ready(function(){
-        debugMode && console.log("username:", $("#username").val() );
     });
 
 </script>
