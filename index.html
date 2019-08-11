@@ -107,7 +107,6 @@
     socket.on("connect", function (status) {
         debugMode && console.log("status:", status);
         if (status.isAuthenticated) {
-
         //  var authToken = socket.getAuthToken();
         //  if ( !$("#username").val() )
         //      $("#username").val(authToken.email);
@@ -119,7 +118,6 @@
         //  }
         //  $("#password").val(authToken.password);
         //  debugMode && console.log( "authToken:", authToken );
-
             var msg = "You have been already authenticated!";
             bootbox.dialog({
                 buttons: false,
