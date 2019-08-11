@@ -118,6 +118,7 @@
         //      $("#username").val(authToken.username);
         //  }
         //  $("#password").val(authToken.password);
+        //  debugMode && console.log( "authToken:", authToken );
 
             var msg = "You have been already authenticated!";
             bootbox.dialog({
@@ -127,7 +128,6 @@
                 message: `<div class="text-center">${msg}</div>`,
             });
 
-            debugMode && console.log( "authToken:", authToken );
         }
     });
 
