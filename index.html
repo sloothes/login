@@ -195,11 +195,29 @@
 
                 debugMode && console.log("login success:", data);
 
-                if (data.success) bootbox.dialog({
+                if (data.message) bootbox.dialog({
                     buttons: false,
                     closeButton: true,
                     className: "middle",
-                    message: `<div class="text-center">${data.success}</div>`,
+                    message: `<div class="text-center">${data.message}</div>`,
+                });
+
+                if (data.success) bootbox.dialog({
+                    size: "small",
+                    className: "middle",
+                    closeButton: false,
+                    title: `<div class="alert-icon icon-success">`
+                    + `</div><h2 style="margin:auto;">Success</h2>`,
+                    message: `<div>${data.success}</div>`,
+                    buttons: { 
+                        success: {
+                            label: "Close",
+                            className: "btn-success",
+                            callback: function(){ 
+                                bootbox.hideAll(); 
+                            }
+                        },
+                    }
                 });
 
             }
