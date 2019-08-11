@@ -114,8 +114,7 @@
     socket.on("connect", function (status) {
         debugMode && console.log("status:", status);
         if (status.isAuthenticated) {
-            var authToken = socket.getAuthToken();
-
+        //  var authToken = socket.getAuthToken();
         //  if ( !$("#username").val() )
         //      $("#username").val(authToken.email);
         //  $("#email").val(authToken.email);
@@ -125,9 +124,7 @@
         //      $("#username").val(authToken.username);
         //  }
         //  $("#password").val(authToken.password);
-
-            debugMode && console.log( "authToken:", authToken );
-
+        //  debugMode && console.log( "authToken:", authToken );
         }
     });
 
