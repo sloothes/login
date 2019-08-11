@@ -105,8 +105,6 @@
 
 <script>
 
-    debugMode && console.log("username:", $("#username").val() );
-
     socket = socketCluster.create({
         //  port:443,
         hostname: "anywhere3d.com",
@@ -167,6 +165,10 @@
 </script>
 
 <script>
+
+    $(function(){
+        debugMode && console.log("username:", $("#username").val() );
+    });
 
     $("#login-btn").on("click", function(){
 
