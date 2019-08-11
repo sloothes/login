@@ -105,10 +105,7 @@
 
 <script>
 
-
-    debugMode && console.log({
-        "username": $("#username").val(),
-    });
+    debugMode && console.log("username:", $("#username").val() );
 
     socket = socketCluster.create({
         //  port:443,
