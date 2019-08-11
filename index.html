@@ -105,6 +105,11 @@
 
 <script>
 
+
+    debugMode && console.log({
+        "username": $("#username").val(),
+    });
+
     socket = socketCluster.create({
         //  port:443,
         hostname: "anywhere3d.com",
@@ -115,10 +120,6 @@
         debugMode && console.log("status:", status);
         if (status.isAuthenticated) {
             var authToken = socket.getAuthToken();
-
-            debugMode && console.log({
-                "username": $("#username").val(),
-            });
 
             if ( !$("#username").val() )
                 $("#username").val(authToken.email);
