@@ -83,6 +83,30 @@
             <input type="password" class="form-control" id="password" name="password" required title="Type your password">
         </div>
 
+        <!-- LOGIN WITH PAYPAL -->
+
+        <div class="form-group">
+            <span id='cwppButton'></span>
+            <script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
+            <script>
+                paypal.use( ["login"], function (login) {
+                    login.render ({
+                        "appid":"ATFM1PGDYe4BTSOnk_1XafZL6FVZagDX6u0hbaIHj9y_3QE0smmHj37QmlLat7x7I315YvLggZTo9WTC",
+                        "authend":"sandbox",
+                        "scopes":"openid profile email https://uri.paypal.com/services/paypalattributes", // space delimiter!
+                        "containerid":"cwppButton",
+                        "responseType":"code id_Token",  // space delimiter!
+                        "locale":"en-us",
+                        "buttonType":"CWP",
+                        "buttonShape":"rectangle",
+                        "buttonSize":"lg",
+                        "fullPage":"true",
+                        "returnurl":"https://sloothes.com"
+                    });
+                });
+            </script>
+        </div>
+
         <div class="form-group">
             <div class="btn btn-default pull-right" id="login-btn" name="login">Login</div>
             <div class="btn btn-default pull-right" id="logout-btn" name="logout">Logout</div>
